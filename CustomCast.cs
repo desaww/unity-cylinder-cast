@@ -26,7 +26,7 @@ public class CustomCast : MonoBehaviour
   {
     //Sends a capsule cast and returns whether something has been hit and how far away this object is
     RaycastHit cHit; //Capsule RaycastHit
-    if(Physics.CapsuleCast(aStart, aEnd, aRadius, -transform.up, out cHit, maxDistance))
+    if(!Physics.CapsuleCast(aStart, aEnd, aRadius, -transform.up, out cHit, maxDistance))
       cIsHit = false;
     else {
       cIsHit = true;
