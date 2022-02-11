@@ -56,12 +56,14 @@ namespace Desaw.CustomCasts
 
         //Sets gizmo
         Gizmos.color = Color.green;
-        Gizmos.DrawWireMesh(mesh, transform.position - new Vector3(0, hit.distance - cylinderHeigth, 0), transform.rotation, new Vector3(cylinderRadius, cylinderHeigth, cylinderRadius));
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawWireMesh(mesh, Vector3.zero - new Vector3(0, hit.distance - cylinderHeigth, 0), Quaternion.identity, Vector3.one);
       }
       else {
         //Sets gizmo
         Gizmos.color = Color.red;
-        Gizmos.DrawWireMesh(mesh, transform.position - new Vector3(0, maxDistance, 0), transform.rotation, new Vector3(cylinderRadius, cylinderHeigth, cylinderRadius));
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawWireMesh(mesh, Vector3.zero - new Vector3(0, maxDistance, 0), Quaternion.identity, Vector3.one);
       }
     }
   }
